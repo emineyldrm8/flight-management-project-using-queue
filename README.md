@@ -2,101 +2,100 @@
 flight management project using queue
 # PROJE TANIMI
 Bu projenin amacı priority queue yapısını kullanarak
-bir havalimanı uc¸us¸ yonetim sistemi olus¸turmaktır.Bunun ¨
-ic¸in oncelikle kuyruk yapısının ve priority queue yapısnın ¨
+bir havalimanı uçuş yönetim sistemi oluşturmaktır.Bunun
+için öncelikle kuyruk yapısının ve priority queue yapısnın
 bilinmesi gerekir.
-Kuyruk, ilk giren eleman ilk c¸ıkar (First In First Out
-– FIFO) mantıgında c¸alıs¸an bir veri yapısıdır. ˘ Orne ¨ gin, ˘
-kuyruk veri yapısı bankada is¸lem yaptırmak ic¸in sıraya
-girmis¸ insanlara benzetilebilir. Sıraya ilk giren kis¸i ilk
-is¸lem yaptıracaktır. Kuyruk tasarımı ic¸in dizi ya da baglı ˘
-liste kullanılabilir. Dizi kullanılan sabit boyutlu, baglı liste ˘
-kullanılarak degis¸ken boyutlu kuyruk olus¸turulabilir. Kuyrukta ˘
-is¸lemler iki uc¸tan yapılır. Kuyruk veri yapısında yapılabilecek
-is¸lemlerden bazıları as¸agıdaki gibidir: ˘
-1. enqueue(): Kuyrugun ˘ on¨ une eleman ekler. ¨
-2. dequeue(): Kuyrugun sonundan eleman c¸ıkarır. ˘
-3. peek(): Silme is¸lemi uygulamadan sıradaki elemanı (front
-is¸aretc¸isinin gosterdi ¨ gi d ˘ u¨g˘um) d ¨ ond ¨ ur¨ ur. ¨
-Bazı problemlerin c¸oz¨ um¨ unde do ¨ grudan kuyruk ˘
-olus¸turulamaz. Orne ¨ gin; bir hastanede muayene sırasına ˘
-girmis¸ insanlar arasında durumu acil olan birisi bulunabilir
-ve bu kis¸i muayene ic¸in oncelikli hale gelebilir. Bu gibi ¨
-durumlarda oncelikli kuyruk kullanılır. ¨ Oncelikli kuyrukta ilk ¨
-giren ilk c¸ıkar mantıgı gec¸erli de ˘ gildir, ˘ onemli olan ¨ onceliktir. ¨
-Oncelikli kuyruk veri yapısında yapılabilecek is¸lemlerden ¨
-bazıları as¸agıdaki gibidir:
-1. add(): Kuyruga eleman eklemek ic¸in kullanılır. ˘
-2. poll(): Kuyruktaki son elemanı dond ¨ ur¨ ur ve elemanı ¨
+Kuyruk, ilk giren eleman ilk çıkar (First In First Out
+– FIFO) mantıgında çalışan bir veri yapısıdır.Örneğin,
+kuyruk veri yapısı bankada işlem yaptırmak için sıraya
+girmiş insanlara benzetilebilir. Sıraya ilk giren kişilik
+işlem yaptıracaktır. Kuyruk tasarımı için dizi ya da bağlı
+liste kullanılabilir. Dizi kullanılan sabit boyutlu, bağlı liste 
+kullanılarak değişken boyutlu kuyruk oluşturulabilir. Kuyrukta 
+işlemler iki uçtan yapılır. Kuyruk veri yapısında yapılabilecek
+işlemlerden bazıları aşağıdaki gibidir: 
+1. enqueue(): Kuyrugun önüne eleman ekler. 
+2. dequeue(): Kuyrugun sonundan eleman çıkarır. 
+3. peek(): Silme işlemi uygulamadan sıradaki elemanı (front
+işaretçisinin gösterdiği düğüm) döndürür. 
+Bazı problemlerin çözümünde doğrudan kuyruk 
+oluşturulamaz.Örneğin; bir hastanede muayene sırasına 
+girmiş insanlar arasında durumu acil olan birisi bulunabilir
+ve bu kişi muayene için öncelikli hale gelebilir. Bu gibi 
+durumlarda öncelikli kuyruk kullanılır.Öncelikli kuyrukta ilk 
+giren ilk çıkar mantığı geçerli değildir,önemli olan önceliktir. 
+Öncelikli kuyruk veri yapısında yapılabilecek işlemlerden 
+bazıları aşağıdaki gibidir:
+1. add(): Kuyruga eleman eklemek için kullanılır. 
+2. poll(): Kuyruktaki son elemanı dondürür ve elemanı 
 kuyruktan siler.
-3. peek(): Kuyruktaki son elemanı silmeden dond ¨ ur¨ ur. ¨
-4. clear(): Kuyruktaki but¨ un elemanları siler. ¨
+3. peek(): Kuyruktaki son elemanı silmeden döndürür.
+4. clear(): Kuyruktaki bütün elemanları siler. 
 5. remove(): Kuyruktaki belirtilen elemanı siler.
 
 # PROJE KONUSU
-1 inis¸ 1 kalkıs¸ olmak uzere 2 pisti bulunan ¨
-˙Istanbul
-Havalimanı’nda gun ic¸erisinde (1-24 saat dilimi boyunca) ¨
-yapılan uc¸us¸ların yonetimi ic¸in bir sistem gelis¸tirilecektir. ¨
-Havalimanında aynı anda sadece 1 uc¸ak kalkıs¸ yapabiliyorken
-sadece 1 uc¸ak inis¸ yapabilmektedir. Uc¸akların her biri inis¸
-ve kalkıs¸ta farklı onceliklere sahiptir ve 1 g ¨ unde maksimum ¨
-24 uc¸ak inis¸ ic¸in izin isteyebilmektedir. Havalimanındaki
-uc¸akların oncelik sırası, inis¸ saati, gecikme s ¨ uresi ve kalkıs¸ ¨
-saati bilgileri kullanılarak;inis¸ pistini ve kalkıs¸ pistini kullanım
-sırasının belirlenmesi hedeflenmektedir Havalimanına inis¸
-yapacak uc¸aklar oncelikle kuleden inis¸ yapabilmek ic¸in izin ¨
+1 iniş¸ 1 kalkış¸ olmak uzere 2 pisti bulunan
+İstanbul
+Havalimanı’nda gün içerisinde (1-24 saat dilimi boyunca) 
+yapılan uçuşların yonetimi için bir sistem geliştirilecektir.
+Havalimanında aynı anda sadece 1 uçak kalkış¸ yapabiliyorken
+sadece 1 uçak iniş yapabilmektedir. Uçakların her biri iniş
+ve kalkışta farklı önceliklere sahiptir ve 1 günde maksimum 
+24 uçak iniş için izin isteyebilmektedir. Havalimanındaki
+uçakların öncelik sırası, inis¸ saati, gecikme süresi ve kalkış,
+saati bilgileri kullanılarak;iniş pistini ve kalkış pistini kullanım
+sırasının belirlenmesi hedeflenmektedir Havalimanına iniş
+yapacak uçaklar öncelikle kuleden iniş yapabilmek için izin
 talep etmelidir.
-1. ˙Inis¸ izni talep eden her bir uc¸ak ic¸in havalimanında
-yeterli kapasite olup olmadıgı kontrol edilmelidir ˘
-(inis pisti kullanim sirasi oncelikli kuyru ¨ gunda yeni uc¸ak ˘
-eklemek ic¸in bos¸ alan var mı?).
-2. Kuleden inis¸ izni talep eden uc¸aklar ic¸in oncelikle, ¨
-inis¸ talep edilen saatte pistin dolu mu bos¸ mu oldugu˘
-kontrol edilmelidir. Pist bos¸ ise inis¸ yapılmak istenen saate
-izin verilmeli ve inis pisti kullanim sirasi’nda uygun yere
-eklenmelidir. Aksi halde uc¸akların inis¸ sıralaması onceli ¨ ge˘
-gore belirlenmelidir. ¨
-3. ˙Inis¸ izni talep eden her uc¸ak ic¸in “˙Inis¸ izin
-talebiniz onaylanmıs¸tır” veya “. . . nedeniyle inis¸ izni
-verilememektedir.” s¸eklinde ekranda yazdırılmalıdır.
-4. Uc¸akların inis¸ ve kalkıs¸ saatleri onceli ¨ ge g ˘ ore ¨
-belirlenecektir. Uc¸akların oncelik (oncelik ¨ id) sıralaması
-s¸u s¸ekildedir (yuksekten d ¨ us¸¨ u¨ge): ˘
-1. Ambulans ucagı
-2. Savas ucagı
-3. Yolcu ucagı
-4. Kargo ucagı
-5. Havalimanına inis¸ talep eden uc¸akların onceli ¨ gi˘
-(oncelik id), uc¸ak numarası (ucak id) ve talep ettigi˘
-inis¸ saati (talep edilen inis saati) input.txt dosyasından
-okunacaktır.
-6. Tum uc¸akların inis¸ ve kalkıs¸ s ¨ ureleri es¸ittir ve hesaplamalara ¨
-dahil edilmeyecektir. ˆ
-7. Havalimanına inis¸ yapan her uc¸agın, kalkıs¸ ic¸in bekleme ˘
-suresi 1 saattir. Uc¸akların kalkıs¸ saatine, ¨ otelenmeden dolayı ¨
-olus¸an gecikme sureleri d ¨ ahil edilmelidir. Kalkıs¸ saati bu ˆ
-bilgilergoz¨ on¨ unde bulundurularak hesaplanmalıdır. ¨
-8. Aynı onceli ¨ ge sahip iki uc¸ak, aynı saatte kalkıs¸ yapacaksa ˘
-oncelik ilk inis¸ yapan uc¸a ¨ ga verilmelidir. ˘
-9. Onceli ¨ gi y ˘ uksek olan uc¸aklar nedeniyle ¨ onceli ¨ gi˘
-dus¸¨ uk olan herhangi bir uc¸a ¨ gın uc¸us¸u,maksimum 3 kez ˘
-ertelenebilir. Eger 3’ten fazla ertelenme durumu s ˘ oz¨
-konusuysa, oncelik g ¨ ozetilmeksizin beklemede olan uc¸a ¨ gın ˘
-kalkıs¸ı gerc¸ekles¸tirilmelidir.
-10. Kuleden bir gunde maksimum 24 uc¸ak inis¸ ic¸in ¨
-izin talep edebilir. Eger bu kapasite dolmus¸sa;o ˘
-˙Inis¸ ic¸in
-onay alan uc¸aklardan en az birinin onceli ¨ gi (X uc¸a ˘ gı olsun), ˘
-inis¸ izni onayı bekleyen uc¸agın (Y uc¸a ˘ gı olsun) ˘ onceli ¨ ginden ˘
-dus¸¨ ukse; y ¨ uksek ¨ oncelikli yeni uc¸a ¨ ga (Y) inis¸ onayı verilir. ˘
+1.İniş izni talep eden her bir uçak için havalimanında
+yeterli kapasite olup olmadığı kontrol edilmelidir.
+(iniş pisti kullanim sirasi öncelikli kuyruğunda yeni uçak
+eklemek için boş alan var mı?). <br> </br>
+2. Kuleden iniş izni talep eden uçaklar için öncelikle, 
+iniş talep edilen saatte pistin dolu mu boş mu olduğu
+kontrol edilmelidir. Pist boş ise iniş yapılmak istenen saate
+izin verilmeli ve iniş pisti kullanım sırasında uygun yere
+eklenmelidir. Aksi halde uçakların iniş sıralaması önceliğe göre belirlenmelidir. <br> </br>
+3. İniş izni talep eden her uçak için “İniş izin
+talebiniz onaylanmıştır” veya “. . . nedeniyle iniş izni
+verilememektedir.” şeklinde ekranda yazdırılmalıdır. <br> </br>
+4. Uçakların iniş ve kalkış saatleri önceliğe göre
+belirlenecektir. Uçakların öncelik (öncelik  id) sıralaması
+şu şekildedir (yuksekten düşüğe): <br> </br>
+1. Ambulans ucagı<br> </br>
+2. Savas ucagı<br> </br>
+3. Yolcu ucagı<br> </br>
+4. Kargo ucagı<br> </br>
+5. Havalimanına iniş talep eden uçakların önceliği
+(öncelik id), uçak numarası (ucak id) ve talep ettiği
+iniş saati (talep edilen iniş saati) input.txt dosyasından
+okunacaktır.<br> </br>
+6. Tum uçakların iniş ve kalkış¸ süreleri eşittir ve hesaplamalara 
+dahil edilmeyecektir. <br> </br>
+7. Havalimanına iniş yapan her uçağın, kalkış için bekleme 
+süresi 1 saattir. Uçakların kalkış saatine, ¨ötelenmeden dolayı ¨
+oluşan gecikme süreleri dahil edilmelidir. Kalkış saati bu 
+bilgiler göz önünde bulundurularak hesaplanmalıdır. <br> </br>
+8. Aynı önceliğe sahip iki uçak, aynı saatte kalkış yapacaksa 
+öncelik ilk iniş yapan uçağa verilmelidir. <br></br>
+9. Önceliği yüksek olan uçaklar nedeniyle ¨önceliği
+düşük olan herhangi bir uçağın uçuşu,maksimum 3 kez 
+ertelenebilir. Eğer 3’ten fazla ertelenme durumu söz 
+konusuysa, öncelik gözetilmeksizin beklemede olan uçağın 
+kalkışı gerçekleştirilmelidir. <br></br>
+10. Kuleden bir günde maksimum 24 uçak iniş için 
+izin talep edebilir. Eğer bu kapasite dolmuşsa;o 
+iniş için
+onay alan uçaklardan en az birinin önceliği (X uçağı olsun), 
+iniş izni onayı bekleyen uçağın(Y uçağı olsun önceliğinden
+düşükse  yüksek öncelikli uçağa  (Y) inis¸ onayı verilir. ˘
 Daha once onay almıs¸ ve ¨ onceli ¨ gi d ˘ us¸¨ uk olan uc¸ak (X) bas¸ka ¨
-bir havalimanına yonlendirilmelidir. ¨
+bir havalimanına yonlendirilmelidir. <br></br>
 11. ˙Inis¸ izni daha onceden onaylanan uc¸a ¨ gın (X) izni ˘
 iptal edilmis¸se; “Acil inis¸ yapması gereken . . . (Y) uc¸agı˘
 nedeniyle inis¸ izniniz iptal edilmis¸tir, inis¸ ic¸in Sabiha Gokc¸en ¨
 Havalimanı’na yonlendiriliyorsunuz.” s¸eklinde ekranda ¨
-yazdırılmalıdır.
+yazdırılmalıdır. <br></br>
 # ARAŞTIRMALAR VE YÖNTEM
 Bu projeyi yapabilmek ic¸in ilk once is¸e kuyruk ve ¨
 oncelikli kuruk yapısını ¨ o¨grenerek bas¸ladık.Daha sonra bu ˘
@@ -105,31 +104,31 @@ olus¸turduk.Projemizdeki uc¸ak bilgilerini dizi ile degil ba ˘ gı˘
 liste ile tutmaya karar verdik.C¸ unk ¨ u b ¨ oylece daha esnek ¨
 bir veri yapısı kullanabilecek ve is¸lemlerimizi daha ozg ¨ urce ¨
 gerc¸ekles¸tirebilecektik.
-A. Fonksiyon ˙Ismi ve Ac¸ıklamaları
+# Fonksiyon İsmi ve Açıklamaları
 1) InisDugumu* yeniInis Fonksiyonu: Bu fonksiyon inen
-uc¸aklar listesine eklenmek ic¸in olus¸turulması gereken yeni
-du¨g˘um¨ u olus¸turur.Bunun ic¸in gec¸ici bir temp d ¨ u¨g˘um¨ unden ¨
+uçaklar listesine eklenmek için oluşturulması gereken yeni
+düğümü oluşturur.Bunun için geçici bir temp düğümünden 
 yararlanır.
 2) KalkisDugumu* yeniKalkis Fonksiyonu: Bu fonksiyon
-kalkan uc¸aklar listesine eklenmek ic¸in olus¸turulması
-gereken yeni du¨g˘um¨ u olus¸turur.Bunun ic¸in gec¸ici bir temp ¨
-du¨g˘um¨ unden yararlanır. ¨
-3) InisPeek Fonksiyonu: ˙Inis¸ kuyrugundaki ilk elemnı geri ˘
-dond ¨ ur¨ ur. ¨
-4) printKalkisPistDurumu Fonksiyonu: Kalkıs¸
-durumundaki uc¸akların listesini ekrana yazdırı.Ayrıca
-output dosyasına da bu listesi gec¸irir.
-5) pop Fonksiyonu: ˙Inis¸ listesindeki ilk elemanı siler.
-6) kalkisEkle Fonksiyonu: Kalkıs¸ ic¸in yeni olus¸turulan
-elemanı kalkıs¸ kuyruguna ekler. ˘
-7) InisEkle Fonksiyonu: ˙Inis¸ ic¸in olus¸turulan yeni elemanı
-inis¸ kuyruguna ekler. ˘
-8) isEmpty Fonksiyonu: ˙Inis¸ kuyrugu dolu mu bos¸ mu ˘
+kalkan uçaklar listesine eklenmek için oluşturulması
+gereken yeni düğümü oluşturur.Bunun için geçici bir temp 
+düğümünden yararlanır. 
+3) InisPeek Fonksiyonu:İniş kuyrugundaki ilk elemanı geri 
+döndürür.
+4) printKalkisPistDurumu Fonksiyonu: Kalkış
+durumundaki uçakların listesini ekrana yazdırı.Ayrıca
+output dosyasına da bu listesi geçirir.
+5) pop Fonksiyonu:İniş listesindeki ilk elemanı siler.
+6) kalkisEkle Fonksiyonu: Kalkış için yeni olus¸turulan
+elemanı kalkış kuyruguna ekler.
+7) InisEkle Fonksiyonu:İnis için oluşturulan yeni elemanı
+iniş kuyruguna ekler.
+8) isEmpty Fonksiyonu:İnis¸ kuyrugu dolu mu boş mu
 kontrol eder.
 
 # PROGRAMIN DERLENMESİ
-Olus¸turdugumuz kodu CodeBlockes,Dev-C++ gibi derleyici ˘
-kullanarak derleyebilirsiniz.Biz Dev-c++ derleyicisini kullanmayı tercih ettik.Kodumuzu da bu derleyici uzerinde yazdık
+Oluşturduğum kodu CodeBlockes,Dev-C++ gibi derleyici 
+kullanarak derleyebilirsiniz.Biz Dev-c++ derleyicisini kullanmayı tercih ettik.Kodumu da bu derleyici uzerinde yazdım..
 
 # SCREENSHOTS
 ![image](https://user-images.githubusercontent.com/73225797/221413205-3a381efd-9c1a-44d1-986c-8763d20b643e.png)
